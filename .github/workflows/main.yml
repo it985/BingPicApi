@@ -32,10 +32,10 @@ jobs:
       - name: 'Push changes'
         uses: ad-m/github-push-action@master
         with:
-          BingPicApi: ${{ secrets.BingPicApi }}
+          github_token: ${{ secrets.TOKEN }}
       - name: 'Create a Release'
         uses: elgohr/Github-Release-Action@master
         env:
-          BingPicApi: ${{ secrets.BingPicApi }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
           args: BingImage

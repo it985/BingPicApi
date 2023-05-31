@@ -33,6 +33,12 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.TOKEN }}
+      - name: 'Create a Release'
+        uses: elgohr/Github-Release-Action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        with:
+          args: BingImage
       - name: Delete Older Releases
         uses: dev-drprasad/delete-older-releases@v0.2.1
         with:
@@ -41,9 +47,3 @@ jobs:
           delete_tag_pattern: beta # defaults to ""
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
-      - name: 'Create a Release'
-        uses: elgohr/Github-Release-Action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        with:
-          args: BingImage

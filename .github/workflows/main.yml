@@ -35,8 +35,8 @@ jobs:
           github_token: ${{ secrets.TOKEN }}
       - uses: actions/delete-package-versions@v4
         with: 
-          package-name: 'test-package'
-          package-type: 'npm'
+          package-name: 'BingImage'
+          package-type: 'Latest'
           min-versions-to-keep: 10
           delete-only-pre-release-versions: "true"
       - name: 'Create a Release'

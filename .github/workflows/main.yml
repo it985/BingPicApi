@@ -34,12 +34,20 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.TOKEN }}
-      - uses: actions/delete-package-versions@v4.1.1
-        with: 
-          package-name: 'BingImage'
-          package-type: 'container'
-          min-versions-to-keep: 10
-          delete-only-pre-release-versions: "true"
+      - name: Delete Older Releases
+        uses: dev-drprasad/delete-older-releases@v0.2.1
+        with:
+          repo: <owner>/<repoName> # defaults to current repo
+          keep_latest: 3
+          delete_tag_pattern: beta # defaults to ""
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+#       - uses: actions/delete-package-versions@v4.1.1
+#         with: 
+#           package-name: 'BingImage'
+#           package-type: 'container'
+#           min-versions-to-keep: 10
+#           delete-only-pre-release-versions: "true"
       - name: 'Create a Release'
         uses: elgohr/Github-Release-Action@master
         env:

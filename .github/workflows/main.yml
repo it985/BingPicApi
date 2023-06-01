@@ -36,7 +36,7 @@ jobs:
       - uses: actions/delete-package-versions@v4
         with: 
           package-name: 'BingImage'
-          package-type: 'Latest'
+          package-type: 'container'
           min-versions-to-keep: 10
           delete-only-pre-release-versions: "true"
       - name: 'Create a Release'

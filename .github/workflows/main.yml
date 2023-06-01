@@ -33,10 +33,10 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.TOKEN }}
-      - uses: actions/delete-package-versions@v4
+      - uses: actions/delete-package-versions@v4.1.1
         with: 
           package-name: 'BingImage'
-          package-type: 'maven'
+          package-type: 'container'
           min-versions-to-keep: 10
           delete-only-pre-release-versions: "true"
       - name: 'Create a Release'

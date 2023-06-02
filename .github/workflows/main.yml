@@ -39,7 +39,7 @@ jobs:
         with:
           repo: it985/BingPicApi # defaults to current repo
           keep_latest: 3
-          delete_tag_pattern: beta # defaults to ""
+#           delete_tag_pattern: beta # defaults to ""
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
 #       - uses: actions/delete-package-versions@v4.1.1
@@ -49,7 +49,8 @@ jobs:
 #           min-versions-to-keep: 10
 #           delete-only-pre-release-versions: "true"
       - name: 'Create a Release'
-        uses: elgohr/Github-Release-Action@master
+#         uses: elgohr/Github-Release-Action@master
+        uses: elgohr/Github-Release-Action@v4
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:

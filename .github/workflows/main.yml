@@ -5,7 +5,7 @@ on:
     branches: 
       - master
   schedule:
-     - cron: '0 22 * * *'   
+    - cron: '0 16 * * *'
 jobs:
   Bing-spider:
     runs-on: ubuntu-latest
@@ -33,24 +33,9 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.TOKEN }}
-      - name: Delete Older Releases
-        uses: dev-drprasad/delete-older-releases@v0.2.1
-        with:
-          repo: it985/BingPicApi # defaults to current repo
-          keep_latest: 1
-#           delete_tag_pattern: beta # defaults to ""
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-#       - uses: actions/delete-package-versions@v4.1.1
-#         with: 
-#           package-name: 'BingImage'
-#           package-type: 'container'
-#           min-versions-to-keep: 10
-#           delete-only-pre-release-versions: "true"
       - name: 'Create a Release'
-#         uses: elgohr/Github-Release-Action@master
-        uses: elgohr/Github-Release-Action@v4
+        uses: elgohr/Github-Release-Action@v5
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
-          title: BingImage
+          args: BingImage
